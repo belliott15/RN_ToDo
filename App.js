@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from "react-native";
 import Task from "./components/Task.js";
@@ -34,6 +35,11 @@ export default function App() {
         style={styles.writeTaskWrapper}
       >
         <TextInput style={styles.input} placeholder={"Write a task"} />
+        <TouchableOpacity>
+          <View style={styles.addWrapper}>
+            <Text style={styles.addText}>+</Text>
+          </View>
+        </TouchableOpacity>
       </KeyboardAvoidingView>
     </View>
   );
@@ -52,5 +58,36 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: "bold",
     marginBottom: 20,
+  },
+  writeTaskWrapper: {
+    position: "absolute",
+    bottom: 60,
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  input: {
+    paddingVertical: 15,
+    width: 250,
+    backgroundColor: "white",
+    paddingHorizontal: 15,
+    borderRadius: 20,
+    borderColor: "gray",
+    borderWidth: 3,
+    marginLeft: 10,
+  },
+  addWrapper: {
+    borderRadius: 60,
+    width: 60,
+    height: 60,
+    borderColor: "grey",
+    backgroundColor: "white",
+    borderWidth: 2,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  addText: {
+    opacity: 0.5,
   },
 });
