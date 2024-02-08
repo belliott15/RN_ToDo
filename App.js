@@ -13,7 +13,11 @@ export default function App() {
           <Task text={"Text2"} />
           <Task text={"Text3"} />
           <Task text={"Text4"} />
-          <Task text={"Text5"} />
+          <Task
+            text={
+              "Text5 and then a bunch more text to test the text wrap funcitonailty"
+            }
+          />
         </View>
       </View>
     </View>
@@ -23,7 +27,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#BDB9AC",
+    backgroundColor: "#CBDBDF",
   },
   taskWrapper: {
     paddingTop: 80,
@@ -32,5 +36,6 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 40,
     fontWeight: "bold",
+    marginBottom: 20,
   },
 });
