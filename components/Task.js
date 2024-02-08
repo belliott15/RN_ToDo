@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const Task = ({ text }) => {
+  const [pressed, setPressed] = useState(false);
+
+  const handlePress = () => {
+    setPressed(!pressed);
+  };
+
   return (
     <View style={taskStyles.item}>
       <View style={taskStyles.itemLeft}>
-        <TouchableOpacity style={taskStyles.square}></TouchableOpacity>
+        {pressed ? (
+          <TouchableOpacity
+            style={taskStyles.squarePressed}
+            onPress={handlePress}
+          ></TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            style={taskStyles.square}
+            onPress={handlePress}
+          ></TouchableOpacity>
+        )}
         <Text style={taskStyles.itemText}>{text}</Text>
       </View>
       <View style={taskStyles.circle}></View>
@@ -32,6 +48,16 @@ const taskStyles = StyleSheet.create({
   },
   square: {
     backgroundColor: "#98D9DD",
+    width: 24,
+    height: 24,
+    borderColor: "blue",
+    borderWidth: 3,
+    borderRadius: 5,
+    marginRight: 15,
+    opacity: 0.5,
+  },
+  squarePressed: {
+    backgroundColor: "red",
     width: 24,
     height: 24,
     borderColor: "blue",
